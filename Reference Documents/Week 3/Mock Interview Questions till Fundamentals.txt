@@ -1,0 +1,109 @@
+A bank has 10 million transaction records. Why would Machine Learning be preferred over manual analysis?
+Why can't we use Linear Regression for Spam Detection?
+A retail company has customer purchase history but no predefined categories. They want to group similar customers.
+If a model gets 99% training accuracy and 60% testing accuracy, what is the issue?
+Can AI exist without Machine Learning?
+Why is Face Unlock a Deep Learning application?
+
+A company wants to predict next month's sales revenue. Which algorithm would you choose?
+Why is Data Cleansing important before training a model?
+A model performs well during training but fails in production. What could be the reason?
+Is Deep Learning require CPU or GPU and why?
+You need to predict whether a loan applicant will default or not. Which algorithm category would you choose?
+If you had to explain AI, ML, and DL to a CEO in one minute, how would you do it
+A bank has 10 million records how would you approach building a system to detect fradulent system??
+
+
+A hospital wants to predict whether a patient has diabetes.Which algorithm would you use?
+is ChatGPT considered Deep Learning or ML and why?
+If model scores 99% accuracy in training and and in testing 60 % why?
+If model scores 55% accuracy in training and and in testing 50 % why?
+You have the following problems. Which algorithm category would you choose?Predict Employee Salary,Group Similar Customers,Predict Spam Email
+A model performs well during training but fails in production. What could be the reason?
+
+
+You trained a fraud detection model using 2024 data. In 2026 accuracy drops significantly. Why?
+You have only 100 records. Can you build a Deep Learning model?
+Your manager says "Just add more data and accuracy will improve."
+can AI exist without Machine Learning?
+Walmart wants to identify products commonly purchased together. Which technique would you use?
+
+What is the anatomy of an LLM
+What is Tokenization
+Why is Self-Attention important
+How can Hallucinations be reduced
+
+"""What is the leave policy of my company?""
+
+The model gives a wrong answer.
+What happened?"
+How can Hallucinations be reduced
+Explain LLM Architecture
+Why does ChatGPT understand that "he" refers to Virat Kohli in a sentence
+Give a Hallucination Example
+
+
+Difference between Self-Attention and FFN
+What happens inside a Transformer Block?
+What is Hallucination in LLMs & Why do Hallucinations happen
+If you had to explain AI, ML, and DL to a CEO in one minute, how would you do it?
+You have customer data, but no labels. The company wants to identify different customer groups. What approach would you use?
+
+
+What is the biggest challenge in AI today?
+Why is Feature Engineering important?
+Your model works perfectly for Indian customers but poorly for US customers.why
+Why not use Deep Learning for House Price Prediction
+"You have 500 records and 50 features.
+Will you use Deep Learning?"
+
+
+Your model works perfectly for Indian customers but poorly for US customers.
+Why do we split data into Training and Testing?
+What is Hallucination
+Explain LLM Architecture
+What happens inside a Transformer Block?
+
+
+What are Embeddings?
+Difference between Self-Attention and FFN?
+Explain LLM Architecture
+What is an LLM?
+
+
+When would you choose AI, ML, and DL?
+"ChatGPT says:
+
+""The capital of India is Mumbai.""
+
+What type of issue is this?"
+How do we control hallucination
+Explain LLM Architecture
+What is the biggest challenge in AI today?
+Your manager says "Just add more data and accuracy will improve."Do you agree?
+
+
+what are the types of machine learning with realtime example
+What is an LLM & why its called as Large language model
+What is a Transformer?
+what is self attention
+You have the following problems. Which algorithm category would you choose?Predict Employee Salary,Group Similar Customers,Predict Spam Email
+
+Your model works perfectly for Indian customers but poorly for US customers.
+"ChatGPT says:
+
+""The capital of India is Mumbai.""
+
+What type of issue is this?"
+Why do we need FFN if we already have Attention?
+Explain LLM Architecture
+You have the following problems. Which algorithm category would you choose?Predict Employee Salary,Group Similar Customers,Predict Spam Email
+Your manager says "Just add more data and accuracy will improve."Do you agree?
+
+Would you use ML or DL for recommendation for your customer
+When would you choose AI, ML, and DL?
+Your model works perfectly for Indian customers but poorly for US customers.why
+Explain Self-Attention with a Real-Time Example
+How FFN will differ from self attention
+Why do Hallucinations happen
+
