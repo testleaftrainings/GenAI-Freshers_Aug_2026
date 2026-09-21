@@ -1,0 +1,18 @@
+*Home Assignment: Machine Learning Use-Case Presentation*
+
+Choose any real-world Machine Learning use case that is either:
+
+* Currently implemented and in use, or
+* Still in the research and development stage
+
+Prepare a presentation explaining:
+
+* The selected domain and its problem
+* How Machine Learning is applied
+* The type of data used
+* The benefits and business impact
+* Challenges and limitations
+* Future improvements and possibilities
+* A real-world example, if available
+
+Be prepared to present and explain your chosen use case clearly during the session.

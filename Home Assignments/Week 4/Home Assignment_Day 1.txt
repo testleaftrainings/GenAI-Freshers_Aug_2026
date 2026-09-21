@@ -1,0 +1,5 @@
+*Home Assignment: Portfolio Prompt Creation*
+
+Write a detailed prompt on your own to create a professional portfolio for your assigned domain. The prompt should clearly describe the required content, sections, theme, layout, colours, features, and responsive design.
+
+**STRICT RULE:** You must write the complete prompt independently. Do not use ChatGPT, Copilot, Gemini, Claude, or any other LLM to generate or improve the prompt.

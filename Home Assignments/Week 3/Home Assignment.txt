@@ -1,0 +1,16 @@
+*Home Assignment: Prompt-Writing Techniques Presentation*
+
+Explore prompt-writing techniques similar to the **ICEPOT framework** and select any one technique.
+
+Prepare a presentation explaining:
+
+* The name and structure of the technique
+* The purpose of each component
+* How the technique improves an LLM’s response
+* The industries or domains where it can be applied
+* A real-world problem in the selected industry
+* How the prompting technique helps solve that problem
+* A comparison of the output before and after applying the technique
+* Benefits, limitations, and best practices
+
+Include a practical prompt and its generated output in your presentation. Be prepared to demonstrate and explain the technique during the session.
