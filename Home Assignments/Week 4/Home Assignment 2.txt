@@ -1,0 +1,13 @@
+*Home Assignment: Architecture and MCQ Creation*
+
+For your assigned domain:
+
+* Create a clear end-to-end architecture diagram for the proposed application.
+* Show all major components, data flow, technologies, integrations, inputs, and outputs.
+* Prepare **20 multiple-choice questions** related to the assigned domain and architecture.
+* Provide four options for each question.
+* Clearly mention the correct answer.
+* Include questions of easy, medium, and difficult levels.
+* Avoid repeating the same concepts across multiple questions.
+
+Be prepared to present and explain both the architecture and MCQs during the session.
