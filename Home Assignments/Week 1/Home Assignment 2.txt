@@ -1,0 +1,20 @@
+*Group Assignment: AI Models and AGI Benchmarks*
+
+Form a group of **three members** and choose any one AI model, such as a GPT model, Gemini, Claude, Llama, or DeepSeek.
+
+Prepare a presentation covering:
+
+* Introduction to the selected AI model
+* Meaning and purpose of AGI benchmarks
+* Benchmarks used to evaluate the model
+* Capabilities tested by each benchmark
+* How the model is evaluated and scored
+* Performance of the selected model
+* Comparison with other leading models
+* Strengths and limitations of benchmark results
+* Whether benchmark performance reflects real-world capability
+* Your group’s final observations
+
+**Important:** Benchmarks are primarily used to evaluate trained models; models are not usually “trained in a benchmark.” Use reliable sources and mention the source of every benchmark result included in your presentation.
+
+All three members must participate in preparing and delivering the presentation.
