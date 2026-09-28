@@ -1,0 +1,8 @@
+*Home Assignment:*
+Application Dependencies and Token Optimization
+
+Explore the different dependencies used in our applications.
+
+Each member should select **five dependencies** and prepare to explain their purpose, how they are used, and why they are required in the application.
+
+Also, explore **token optimization** and be prepared to explain it during the session.
