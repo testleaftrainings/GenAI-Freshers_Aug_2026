@@ -1,0 +1,54 @@
+AGILE – QUICK BYTES
+
+Agile
+
+* Agile is an iterative and flexible approach to software development.
+* Work is delivered in small, incremental releases.
+* It focuses on customer collaboration, continuous feedback, and adapting to change.
+* Development and testing happen continuously throughout the project.
+* Agile encourages close collaboration between cross-functional teams.
+
+Core Values
+
+* Individuals and interactions over processes and tools.
+* Working software over comprehensive documentation.
+* Customer collaboration over contract negotiation.
+* Responding to change over following a plan.
+
+Key Characteristics
+
+* Iterative and incremental development.
+* Frequent customer feedback.
+* Continuous testing and integration.
+* Flexible response to changing requirements.
+* Continuous improvement.
+* Strong team collaboration.
+
+Common Agile Frameworks
+
+* Scrum – development through timeboxed Sprints.
+* Kanban – continuous workflow using visual boards.
+* SAFe – scaling Agile across large organizations.
+
+Typical Agile Flow
+
+Requirements → Planning → Development → Testing → Review → Feedback → Improvement → Next Iteration
+
+Advantages
+
+* Faster delivery of working software.
+* Easy adaptation to changing requirements.
+* Early identification of issues.
+* Continuous customer involvement.
+* Frequent delivery of business value.
+
+Challenges
+
+* Requires active stakeholder involvement.
+* Changing requirements can affect scope.
+* Requires strong team collaboration and discipline.
+* Less predictable when requirements change frequently.
+
+In one line:
+
+Agile = Iterative development + Customer collaboration + Continuous feedback + Adaptability to change.
