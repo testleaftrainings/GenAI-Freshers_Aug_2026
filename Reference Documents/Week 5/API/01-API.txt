@@ -1,0 +1,20 @@
+| #  | Question                                     | One-Line Answer                                                                     |
+| -- | -------------------------------------------- | ----------------------------------------------------------------------------------- |
+| 1  | What is an API?                              | API is a way for two software applications to communicate with each other.          |
+| 2  | What does API stand for?                     | API stands for **Application Programming Interface**.                               |
+| 3  | Why do we use APIs?                          | APIs allow applications to exchange data and use each other's functionality.        |
+| 4  | What is an API request?                      | An API request is a message sent from a client to a server to perform an operation. |
+| 5  | What is an API response?                     | An API response is the data or result returned by the server.                       |
+| 6  | What is REST API?                            | REST API is an API that follows REST principles to communicate over HTTP.           |
+| 7  | What is GET?                                 | GET is used to retrieve data from a server.                                         |
+| 8  | What is POST?                                | POST is used to create or submit new data to a server.                              |
+| 9  | What is PUT?                                 | PUT is generally used to update existing data.                                      |
+| 10 | What is DELETE?                              | DELETE is used to remove data from a server.                                        |
+| 11 | What is an endpoint?                         | An endpoint is a specific URL through which an API can be accessed.                 |
+| 12 | What is a status code?                       | A status code tells us the result of an API request.                                |
+| 13 | What does 200 mean?                          | **200 OK** means the request was successful.                                        |
+| 14 | What does 404 mean?                          | **404 Not Found** means the requested resource could not be found.                  |
+| 15 | What does 500 mean?                          | **500 Internal Server Error** means the server encountered an unexpected error.     |
+| 16 | What is JSON?                                | JSON is a common format used to exchange data between applications.                 |
+| 17 | What is API testing?                         | API testing verifies whether APIs work correctly and return the expected responses. |
+| 18 | Which tool is commonly used for API testing? | **Postman** is a commonly used tool for API testing.                                |

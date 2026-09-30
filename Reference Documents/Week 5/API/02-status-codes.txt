@@ -1,0 +1,25 @@
+| Code    | Meaning                | Simple Explanation                                            |
+| ------- | ---------------------- | ------------------------------------------------------------- |
+| **200** | OK                     | Request was successful.                                       |
+| **201** | Created                | New resource was successfully created.                        |
+| **204** | No Content             | Request was successful, but there is no response body.        |
+| **400** | Bad Request            | Request contains invalid or incorrect data.                   |
+| **401** | Unauthorized           | Authentication is missing or invalid.                         |
+| **403** | Forbidden              | User is authenticated but does not have permission.           |
+| **404** | Not Found              | Requested resource or endpoint does not exist.                |
+| **405** | Method Not Allowed     | HTTP method is not allowed for that endpoint.                 |
+| **408** | Request Timeout        | Server took too long to receive the request.                  |
+| **409** | Conflict               | Request conflicts with the current state of the resource.     |
+| **415** | Unsupported Media Type | Server does not support the request's data format.            |
+| **429** | Too Many Requests      | Too many requests were sent in a given time.                  |
+| **500** | Internal Server Error  | Unexpected error occurred on the server.                      |
+| **502** | Bad Gateway            | Server received an invalid response from another server.      |
+| **503** | Service Unavailable    | Server is temporarily unavailable.                            |
+| **504** | Gateway Timeout        | Server did not receive a timely response from another server. |
+
+
+Easy way to remember
+🟢 2xx → Success
+🟡 3xx → Redirection
+🔴 4xx → Client-side error
+🔴 5xx → Server-side error
