@@ -1,0 +1,51 @@
+What is REST API?
+==================
+A REST API, or representational state transfer application programming interface, is an architectural style that’s commonly seen as the standard for designing and building the networked applications that power the web. It provides a set of rules and constraints that, when followed, result in web services that are simple, scalable, and easy to integrate.
+
+
+
+REST API defined
+=================
+A REST API is an API that conforms to the design principles of the REST architectural style. At its core, REST revolves around the idea of resources, which can be any piece of information like a user, product, document, or collection of items. 
+
+
+How does a REST API work?
+================================
+1. Client sends request
+A client application (like a mobile app, web browser, or another server) initiates a request to the API to perform an action. This request is sent to a specific URL and includes an HTTP method, headers with metadata, and sometimes a request body with data.
+
+2. Server processes request
+The server receives and validates the request, confirming that the client is authenticated and authorized to perform the requested action. It then processes the request, which could involve retrieving data from a database, creating a new resource, or updating an existing one.
+
+3. Server sends response
+After processing the request, the server sends a response back to the client. This response includes an HTTP status code indicating the outcome (for example, 200 OK for success, 404 Not Found if the resource doesn't exist, 401 Unauthorized for security issues), along with the requested data in the response body.
+
+4. Data transfer
+The data transferred between the client and server is a "representation" of the state of the resource. JSON (JavaScript Object Notation) is the most common format for this data because it is lightweight, human-readable, and easy for programming languages to parse.
+
+REST API architecture and components
+The power and scalability of REST come from a set of architectural constraints that guide its design. A system that adheres to these constraints is considered "RESTful."
+
+REST API model diagram
+=========================
+
+Resources
+A resource is a fundamental concept in REST. It is an object with a type, associated data, relationships to other resources, and a set of methods that operate on it. For example, in an e-commerce API, a "product" or a "customer" would be a resource.
+
+Resources
+A resource is a fundamental concept in REST. It is an object with a type, associated data, relationships to other resources, and a set of methods that operate on it. For example, in an e-commerce API, a "product" or a "customer" would be a resource.
+
+URIs (uniform resource identifiers)
+Each resource is uniquely identified by a URI. A well designed API uses clean, descriptive, and consistent URIs to identify its resources. For example, /users might identify a collection of users, and /users/123 would identify a specific user with the ID 123.
+
+Representations
+A client does not interact with the resource directly but with a representation of that resource. The most common representation format is JSON, but others like XML or HTML can also be used. This provides a flexible way to represent the state of a resource.
+
+Statelessness
+Every request from a client to the server must contain all the information the server needs to understand and process the request. The server does not store any client context or session state between requests. This constraint makes REST APIs highly scalable because any server can handle any request.
+
+Client-server architecture
+The client and server are separated, with the API acting as the interface between them. This separation of concerns allows the client-side application and the server-side application to evolve independently.
+
+Uniform interface
+REST requires a consistent, uniform interface between the client and server. This is achieved through the use of standard HTTP methods, URIs for resource identification, and hypermedia as the engine of application state (HATEOAS).
