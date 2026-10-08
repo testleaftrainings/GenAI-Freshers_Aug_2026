@@ -32,11 +32,10 @@ REST API model diagram
 Resources
 A resource is a fundamental concept in REST. It is an object with a type, associated data, relationships to other resources, and a set of methods that operate on it. For example, in an e-commerce API, a "product" or a "customer" would be a resource.
 
-Resources
-A resource is a fundamental concept in REST. It is an object with a type, associated data, relationships to other resources, and a set of methods that operate on it. For example, in an e-commerce API, a "product" or a "customer" would be a resource.
-
 URIs (uniform resource identifiers)
 Each resource is uniquely identified by a URI. A well designed API uses clean, descriptive, and consistent URIs to identify its resources. For example, /users might identify a collection of users, and /users/123 would identify a specific user with the ID 123.
+
+https://petstore.swagger.io/v2/pet/findByStatus?status=available
 
 Representations
 A client does not interact with the resource directly but with a representation of that resource. The most common representation format is JSON, but others like XML or HTML can also be used. This provides a flexible way to represent the state of a resource.
