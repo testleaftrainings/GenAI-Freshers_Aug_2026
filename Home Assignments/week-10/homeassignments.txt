@@ -1,0 +1,3 @@
+1. Bank accounts: BankAccount with deposit() and a withdraw() that returns False when funds are too low, plus a SavingsAccount child with an interest rate and add_interest().
+2. Inventory: a shared store name, an items dictionary for each object, add_item(), a remove_item() that checks stock, and total_items().
+3. Employees and managers: Employee with give_raise(), and a Manager child with a team list that also inherits give_raise().
