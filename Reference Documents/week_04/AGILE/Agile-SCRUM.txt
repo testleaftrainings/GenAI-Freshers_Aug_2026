@@ -1,0 +1,36 @@
+SCRUM – QUICK BYTES
+
+Scrum
+
+* Scrum is an Agile framework used to develop software incrementally.
+* Work is divided into short, fixed periods called Sprints.
+* A Sprint typically lasts 1–4 weeks.
+* Each Sprint aims to produce a potentially usable product increment.
+
+Scrum Roles
+
+* Product Owner – manages priorities and Product Backlog.
+* Scrum Master – facilitates Scrum and helps remove impediments.
+* Developers – build and deliver the product increment.
+
+Scrum Artifacts
+
+* Product Backlog – complete list of desired work.
+* Sprint Backlog – work selected for the current Sprint.
+* Increment – completed, usable output of the Sprint.
+
+Scrum Events
+
+1. Sprint Planning – decide what to build.
+2. Daily Scrum – short daily team synchronization.
+3. Sprint Review – demonstrate the completed work.
+4. Sprint Retrospective – discuss how to improve.
+5. Sprint – the overall development cycle.
+
+Simple Flow
+
+Product Backlog → Sprint Planning → Sprint → Daily Scrum → Increment → Review → Retrospective → Next Sprint
+
+In one line:
+
+Scrum = Agile framework + short Sprints + continuous feedback + working software.

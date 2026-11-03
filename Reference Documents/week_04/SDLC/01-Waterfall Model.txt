@@ -1,0 +1,66 @@
+**The Waterfall model is a linear, sequential software development methodology where each phase—requirements, design, development, testing, deployment, and maintenance—must be completed before the next begins, making it suitable for projects with fixed and well-defined requirements.**
+
+# Overview
+
+The Waterfall model is one of the earliest and most traditional SDLC (Software Development Life Cycle) approaches. It emphasizes a structured, documentation-heavy, phase-by-phase progression. GeeksforGeeks
+
+# Key Phases
+
+1. Requirements Analysis & Specification
+
+   * Collect and analyze all customer requirements.
+   * Document them in an SRS (Software Requirement Specification).
+     Online Tutorials Library
+
+2. System & Software Design
+
+   * High-Level Design (architecture, components).
+   * Low-Level Design (detailed logic, data flow).
+   * Output: Software Design Document (SDD).
+     Online Tutorials Library
+
+3. Development (Implementation)
+
+   * Code is written based on design documents.
+   * Unit testing is performed on individual modules.
+     GeeksforGeeks
+
+4. Integration & Testing
+
+   * Modules are integrated and tested as a complete system.
+   * Includes system testing, alpha, beta, and acceptance testing.
+     Online Tutorials Library
+
+5. Deployment
+
+   * Software is released to the production environment.
+   * Includes environment setup and user training.
+     GeeksforGeeks
+
+6. Maintenance
+
+   * Corrective, adaptive, and perfective maintenance after release.
+     Online Tutorials Library
+
+# Advantages
+
+* Simple and easy to understand.
+* Clear documentation at every stage.
+* Predictable timelines and deliverables.
+* Works well when requirements are stable and fixed.
+  Wikipedia
+
+# Disadvantages
+
+* Very rigid; changes are difficult once a phase is completed.
+* Late testing increases risk of discovering major issues late.
+* Not suitable for projects with evolving requirements.
+  GeeksforGeeks
+
+# When to Use
+
+* Projects with clear, stable requirements.
+* Environments where strict documentation and predictability are essential (e.g., construction, manufacturing, aerospace).
+  Project-Management.com
+
+The Waterfall model remains relevant for structured, predictable projects where clarity and sequential progression are priorities.

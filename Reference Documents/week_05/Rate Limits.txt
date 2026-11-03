@@ -1,0 +1,22 @@
+Rate Limits
+==============
+
+Rate limits act as control measures to regulate how frequently users and applications can access our API within specified timeframes. These limits help ensure service stability, fair access, and protection against misuse so that we can serve reliable and fast inference for all.
+
+Rate limits are measured in:
+
+RPM: Requests per minute
+RPD: Requests per day
+
+TPM: Tokens per minute
+TPD: Tokens per day
+
+ASH: Audio seconds per hour
+ASD: Audio seconds per day
+
+ITPM: Input tokens per minute
+OTPM: Output tokens per minute
+
+Handling Rate Limits
+------------------------
+When you exceed rate limits, our API returns a 429 Too Many Requests HTTP status code.
