@@ -1,0 +1,158 @@
+{
+  "name": "06b_basic_llm_chain",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -96,
+        -96
+      ],
+      "id": "9898c30c-c9b3-49fa-9eb9-8885b6b538d5",
+      "name": "When chat message received",
+      "webhookId": "721e9fb8-d1f0-4a9e-8363-dfec2673c1a3"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "needsFallback": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        128,
+        -96
+      ],
+      "id": "a53e734a-9455-43c2-81b5-a3d2e619cd6a",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-6.1-terra",
+          "mode": "list",
+          "cachedResultName": "gpt-6.1-terra"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        48
+      ],
+      "id": "6f10c2e5-ad60-4b26-9fda-eaae3d4c0896",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-5",
+          "cachedResultName": "Claude Sonnet 5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.6,
+      "position": [
+        16,
+        48
+      ],
+      "id": "e7a7db12-9f87-43d7-838e-3db39f6f2c02",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        288,
+        64
+      ],
+      "id": "e9bf14b6-5af1-4f12-b640-46a98928eb92",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ce8e2050-503e-4f43-a25e-dc24b34ed9e7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "QOCNRoaaxmllnKOd",
+  "tags": []
+}

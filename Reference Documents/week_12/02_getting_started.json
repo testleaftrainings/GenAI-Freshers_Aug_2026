@@ -1,0 +1,320 @@
+{
+  "name": "02_getting_started",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        -320
+      ],
+      "id": "0e914a71-1f54-47ba-95a5-8173a19f97d2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "brjpdgxckcZPaV5B",
+          "mode": "list",
+          "cachedResultName": "processsingOrders",
+          "cachedResultUrl": "/projects/fh35sT60XmZ1SXnV/datatables/brjpdgxckcZPaV5B"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "orderID",
+              "keyValue": "={{ $json.orderID }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "orderID",
+              "displayName": "orderID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "employeeName",
+              "displayName": "employeeName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        -320
+      ],
+      "id": "fe5a732e-1aa9-478d-86e1-59f4208aee0f",
+      "name": "Upsert Orders"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 4
+          },
+          "conditions": [
+            {
+              "id": "e34977cb-a30f-49e3-91f0-783fb31497dd",
+              "leftValue": "={{ $json.orderStatus }}",
+              "rightValue": "processing",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.4,
+      "position": [
+        64,
+        -224
+      ],
+      "id": "a3b322aa-ad47-4daa-a7da-2c2a93348f22",
+      "name": "check Order Status"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f7b98606-8128-4a31-89ea-3c98486bb40d",
+              "name": "orderID",
+              "value": "={{ $json.orderID }}",
+              "type": "number"
+            },
+            {
+              "id": "0e46da9f-1ddc-4f6f-8b5a-4b6029136644",
+              "name": "employeeName",
+              "value": "={{ $json.employeeName }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        288,
+        -320
+      ],
+      "id": "fb8f762c-869e-4e3e-aa06-268db74f7be7",
+      "name": "Set Processing Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "let items = $input.all();\nlet totalBooked = items.length;\nlet bookedSum = 0;\n\nfor (let i=0; i < items.length; i++) {\n  bookedSum = bookedSum + items[i].json.orderPrice;\n}\n\nreturn [{ json: {totalBooked, bookedSum} }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        -128
+      ],
+      "id": "84bce914-48cb-4fa4-9c8a-c196c5f9ab48",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=This week we've {{$json.totalBooked}} booked orders with a total value of {{$json.bookedSum.round(2)}}. My Assessment ID: 85292dca7949d264da04b57b32191665",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        512,
+        -128
+      ],
+      "id": "1f259421-80f1-445a-8486-f34161c7c3d9",
+      "name": "Discord",
+      "webhookId": "290e200d-16c8-4b23-8930-b2f8f7cc94c0",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "BNbe3Tbk3on6ATDy",
+          "name": "Discord Webhook account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://learn.app.n8n.cloud/webhook/courses/n8n-quickstart/company-warehouse",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-assessment-id",
+              "value": "85292dca7949d264da04b57b32191665"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -160,
+        -224
+      ],
+      "id": "0435a85f-e888-4533-90fb-f2ae0e9618ab",
+      "name": "GetDataFromWarehouse",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "7fHHqMzlCWANdXY4",
+          "name": "Nathans"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 9,
+              "triggerAtMinute": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -384,
+        -128
+      ],
+      "id": "4694ced9-66f9-4cd2-9bec-af99e992eb02",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "GetDataFromWarehouse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check Order Status": {
+      "main": [
+        [
+          {
+            "node": "Set Processing Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Processing Data": {
+      "main": [
+        [
+          {
+            "node": "Upsert Orders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Orders": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetDataFromWarehouse": {
+      "main": [
+        [
+          {
+            "node": "check Order Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "GetDataFromWarehouse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "248e16b3-18c6-4b87-b559-f029e84e60db",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "hh5oV4Z7NPSpcHxM",
+  "tags": []
+}

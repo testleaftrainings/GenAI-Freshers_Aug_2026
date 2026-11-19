@@ -1,0 +1,82 @@
+{
+  "name": "04b_xml_flow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a1bc1127-ea87-4f2c-8577-36bf7a065c02",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://pokeapi.co/api/v2/pokemon",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "b030d34b-92f4-4e4c-8c5c-35af99ee9f6f",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "mode": "jsonToxml",
+        "dataPropertyName": "results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "fae9880e-c691-44af-aa26-bf10a2eb08eb",
+      "name": "XML"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "447b7b2c-8c87-43c0-bf46-e5019679a88a",
+  "meta": {
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "nR4UkLK1ifxHYCmd",
+  "tags": []
+}

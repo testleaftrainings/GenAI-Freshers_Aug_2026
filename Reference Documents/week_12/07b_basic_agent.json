@@ -1,0 +1,151 @@
+{
+  "name": "06a_basic_agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -160,
+        112
+      ],
+      "id": "5ddbeadb-9925-4c08-ace8-39a2e9dd87ec",
+      "name": "When chat message received",
+      "webhookId": "bc6960a2-be0b-4417-9673-c7792e1ebc10"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        64,
+        112
+      ],
+      "id": "6ed72b54-18e8-4758-ab22-e94dd8321e40",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -32,
+        256
+      ],
+      "id": "96ca5504-679e-407d-8e80-1087b28cb805",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        80,
+        256
+      ],
+      "id": "7e548841-d509-4e18-bd2d-1eff244b8a80",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "4Hk6KULPsYrw0Qwy",
+          "mode": "list",
+          "cachedResultName": "orders",
+          "cachedResultUrl": "/projects/fh35sT60XmZ1SXnV/datatables/4Hk6KULPsYrw0Qwy"
+        }
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1.1,
+      "position": [
+        288,
+        240
+      ],
+      "id": "abbf4c9e-1fab-4961-b451-8eaed5f98e5e",
+      "name": "Get row(s) in Data table"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "be621499-5b06-4ea3-af52-047d714935ae",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "34IwQmbOe1tb48z5",
+  "tags": []
+}

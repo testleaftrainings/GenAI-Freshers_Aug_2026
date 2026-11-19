@@ -1,0 +1,128 @@
+{
+  "name": "03b_referring_data_from_other_nodes",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "938ab3c4-1959-4ac5-b523-84b7af668b75",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "03a237e6-1a1b-4bcc-8fef-65c895a82924",
+              "name": "Summary",
+              "value": "={{ $('GetCustomers').first().json.name }} is one of {{ $json.totalCustomers }} customers",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        672,
+        0
+      ],
+      "id": "0c36b32a-9ce0-4581-8e07-e7ffc0d2ed78",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "getAllPeople",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "eb47b42d-807c-4a96-8c77-24eb32f5b148",
+      "name": "GetCustomers"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { totalCustomers: $input.all().length } }]"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "a1da4414-2010-4fad-8eb8-4f8183eaf0b2",
+      "name": "CountCustomers"
+    },
+    {
+      "parameters": {
+        "operation": "getAllPeople",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -80
+      ],
+      "id": "8f678c90-b292-4123-b0f3-f78434aa3b71",
+      "name": "Customer Datastore (n8n training)"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "GetCustomers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetCustomers": {
+      "main": [
+        [
+          {
+            "node": "CountCustomers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CountCustomers": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "afc59f3f-80cb-42bb-b146-f9bd88c4eb8d",
+  "meta": {
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "P7WnuesEiU4jRC9G",
+  "tags": []
+}

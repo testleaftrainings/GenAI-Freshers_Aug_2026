@@ -1,0 +1,97 @@
+{
+  "name": "06_error_handling",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1360,
+        -144
+      ],
+      "id": "13ee3767-a950-4366-bfa5-4e02d42c90b7",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://httpstatuses.maor.io/500",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -1136,
+        -144
+      ],
+      "id": "5c234040-9fac-49be-a151-70f470747775",
+      "name": "HTTP Request",
+      "retryOnFail": false,
+      "maxTries": 3,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -912,
+        -240
+      ],
+      "id": "348a9a2c-206a-479f-8136-0fa6dca12d5b",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -928,
+        -112
+      ],
+      "id": "fc95698e-3380-4e34-8835-59dc7fcb584d",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "7d6b4973-d89e-42e2-992f-1e6fece2286d",
+  "meta": {
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "5GO2RXo9pHGCu2uR",
+  "tags": []
+}
