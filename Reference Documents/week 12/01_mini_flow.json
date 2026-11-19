@@ -1,0 +1,68 @@
+{
+  "name": "01_mini_flow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -64,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "e42e906b-be16-4df7-9633-4d38bc1f152e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        112
+      ],
+      "id": "fd29e9a9-2e46-4fd9-b5b6-078a0e066c6e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "all",
+        "limit": 10,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.hackerNews",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        112
+      ],
+      "id": "ea39dd54-cf92-430c-a972-94c867d04900",
+      "name": "Get many items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "d15d132a-864e-4185-9839-faa7e4343882",
+  "meta": {
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "LY7zCsBrhkK9YrWW",
+  "tags": []
+}

@@ -1,0 +1,212 @@
+{
+  "name": "03_Code_Reviewer",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "AI Code Reviewer Agent",
+        "formDescription": "This AI Agent will review any code file and give the report in detail.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "URL to the Code File"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -656,
+        -160
+      ],
+      "id": "64d2f769-466c-4aa3-bc3d-ddff1523e68a",
+      "name": "On form submission",
+      "webhookId": "5ac0df41-fcf5-4479-b987-2db0e0e1f819",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.rawUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -208,
+        -160
+      ],
+      "id": "67f18bfc-4082-42e4-8a54-032012da4e06",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=For this given Input java code :{{ $json.data }} follow these;\n\nInstructions:\n\nYou are an expert Software Code Reviewer specialized in Java enterprise development and test automation frameworks.\nYour task is to analyze and review the uploaded Java code based on specific quality parameters and provide:\n\nIndividual parameter scores (each out of 20)\n\nOverall code quality score (out of 100)\n\nActionable feedback and recommendations for improvement\n\nEvaluate the Java code against the following five parameters:\n\nCode Readability: Are naming conventions, indentation, and structure clear and consistent?\n\nCode Efficiency: Does the code avoid unnecessary loops, redundant logic, and optimize performance?\n\nError Handling: Does the code handle exceptions gracefully with meaningful messages and proper use of try-catch/finally or logging?\n\nMaintainability: Is the code modular, reusable, and easily extendable for future changes?\n\nBest Practices & Standards: Does the code follow Java best practices (SOLID, DRY, proper imports, dependency management, etc.)?\n\nFinally, generate an overall rating with improvement areas and a short summary.\n\nC – Context\n\nThe input Java code belongs to a production-grade software project (could be backend automation, web app, or API service).\nAssume that this code will be part of a shared repository reviewed by multiple developers, so it must comply with clean code, maintainability, and security standards.\nYou are reviewing this code as part of a formal pull request (PR) process.\n\n\nExample Output (Review Summary):\n\nParameter\tDescription\tScore (out of 20)\nCode Readability\tNaming is clear but lacks comments or documentation.\t16\nCode Efficiency\tSimple arithmetic; no inefficiencies observed.\t18\nError Handling\tMissing division-by-zero handling.\t10\nMaintainability\tClass is minimal; not modularized for future extensions.\t14\nBest Practices & Standards\tLacks input validation and unit tests.\t13\n\nOverall Score: 71 / 100\n\nImprovement Areas:\n\nAdd input validation for division-by-zero errors.\n\nInclude JavaDoc comments for public methods.\n\nImplement basic unit tests to validate functionality.\n\nSummary:\nThe code functions correctly but lacks robustness and documentation. Minor improvements can enhance production readiness.\n\nP – Persona\n\nYou are a senior Java architect and code reviewer with 10+ years of experience in enterprise application design, CI/CD integration, and automation frameworks (Spring Boot, Selenium, Playwright, TestNG).\nYou are known for balancing code quality with real-world performance and maintainability.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        16,
+        -160
+      ],
+      "id": "e3c90dd1-ad25-43c3-9343-0216d07f561c",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.6,
+      "position": [
+        96,
+        80
+      ],
+      "id": "d28a460f-5b59-4c61-b80c-dc277576e95e",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "sathishalthus.learning@gmail.com",
+        "toEmail": "sathishalthus.learning@gmail.com",
+        "subject": "My Review",
+        "html": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        368,
+        -160
+      ],
+      "id": "de6b97c1-b735-4bec-abae-7397b99790cd",
+      "name": "Send an Email",
+      "webhookId": "64c7a36e-7afe-4523-99d7-d91a32d04a5f",
+      "credentials": {
+        "smtp": {
+          "id": "z8N5hGZOztV8TA5N",
+          "name": "SMTP_Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        32
+      ],
+      "id": "b633998f-89df-49c7-a362-9ea97651c7f6",
+      "name": "Send a message",
+      "webhookId": "6db8b311-2912-41b0-8a58-392a1be42771",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Uo6xeaaHVaSdAXpv",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst githubUrl = $input.first().json['URL to the Code File'];\n\nconst rawUrl = githubUrl\n  .replace(\"github.com\", \"raw.githubusercontent.com\")\n  .replace(\"/blob/\", \"/\");\n\nreturn {\n  json: {\n    originalUrl: githubUrl,\n    rawUrl: rawUrl\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -432,
+        -160
+      ],
+      "id": "0877de71-d874-4e9c-ab77-e6bbc7a9cac1",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "91eeb1a2-22d2-4c63-9695-bda488d818aa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "JHe6sOfsD39kbmRh",
+  "tags": []
+}

@@ -1,0 +1,112 @@
+{
+  "name": "05b_merge_data",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        96
+      ],
+      "id": "bc4c1e27-93cb-4234-b0ae-ae3edcf5ad8e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "getAllPeople",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        0
+      ],
+      "id": "30f4f955-d4d3-476f-a111-545f637cb870",
+      "name": "Customer Datastore (n8n training)"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      name: 'Jay Gatsby',\n      country: {\n        name: 'US'\n      }\n    }\n  },\n  {\n    json: {\n      name: 'José Arcadio Buendía',\n      country: {\n        name: 'CO'\n      }\n    }\n  },\n  {\n    json: {\n      name: 'Max Mustermann',\n      country: {\n        name: 'DE'\n      }\n    }\n  },\n  {\n    json: {\n      name: 'John Smith',\n      country: {\n        name: 'UK'\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        224
+      ],
+      "id": "fb4bd620-a769-4f3c-8a58-9d40a3327d16",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "name",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        128,
+        112
+      ],
+      "id": "96eb8603-cf01-4723-93d3-a952d1be3ba8",
+      "name": "Merge"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Customer Datastore (n8n training)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Customer Datastore (n8n training)": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "951e061f-2d6d-4f1d-9b39-c65e4ea76f64",
+  "meta": {
+    "instanceId": "c4062fd58623f0ff2ad6e126ec4b17d6a098e3a730210fe7e9534c0a8746f38e"
+  },
+  "nodeGroups": [],
+  "id": "aBX42KqkWfPv0yps",
+  "tags": []
+}
